@@ -1,0 +1,145 @@
+ Using Embedding Model,Baseline Configuration (Default & Balanced) - Case 1,,,,"High-Diversity Extraction (More Keywords, More Variety) - Case 2",,,, Conservative & High Precision (Strict & Relevant) - Case 3,,,,"Extreme Coverage (Very Many Keywords, Maximal Recall) - Case 4",,
+,Parameters,Similarity Metric,Output value,,Parameters,Similarity Metric,Output value,,Parameters,Similarity Metric,Output value,,Parameters,Similarity Metric,Output value
+"sentence-transformers"": SentenceTransformer(""all-MiniLM-L6-v2"")","
+    ""keyphrase_ngram_range"": (1, 1),
+    ""top_n"": 5, 
+    ""stop_words"": ""english"",
+    ""use_mmr"": False
+",Rouge,"  rouge1: 0.3019
+  rouge2: 0.0306
+  rougeL: 0.2155",,"""keyphrase_ngram_range"": (1, 2),
+""top_n"": 10,
+""stop_words"": None,
+""use_mmr"": True,
+""diversity"": 0.7",Rouge,"  rouge1: 0.3919
+  rouge2: 0.1349
+  rougeL: 0.2520",,"
+""keyphrase_ngram_range"": (1, 1),
+""top_n"": 3,
+""stop_words"": ""english"",
+""use_mmr"": False ",Rouge,"  rouge1: 0.2178
+  rouge2: 0.0219
+  rougeL: 0.1758",,"
+""keyphrase_ngram_range"": (1, 3),
+""top_n"": 15,
+""stop_words"": None,
+""use_mmr"": True,
+""diversity"": 1.0
+",Rouge,"  rouge1: 0.3057
+  rouge2: 0.0995
+  rougeL: 0.1956"
+,,Cosine Similarity,0.6394,,,Cosine Similarity,0.7183,,,Cosine Similarity,0.5703,,,Cosine Similarity,0.6807
+" ""flair"": TransformerDocumentEmbeddings(""bert-base-uncased"")",,Rouge,"  rouge1: 0.2077
+  rouge2: 0.0101
+  rougeL: 0.1499",,,Rouge,"  rouge1: 0.2826
+  rouge2: 0.0788
+  rougeL: 0.1879",,,Rouge,"  rouge1: 0.1497
+  rouge2: 0.0070
+  rougeL: 0.1214",,,Rouge,"  rouge1: 0.2878
+  rouge2: 0.0922
+  rougeL: 0.1828"
+,,Cosine Similarity,0.4551,,,Cosine Similarity,0.5855,,,Cosine Similarity,0.3839,,,Cosine Similarity,0.6449
+" ""spacy"": spacy.load(""en_core_web_md"")",,Rouge,"  rouge1: 0.1450
+  rouge2: 0.0061
+  rougeL: 0.111",,,Rouge," rouge1: 0.1680
+  rouge2: 0.0107
+  rougeL: 0.1180",,,Rouge,"  rouge1: 0.0951
+  rouge2: 0.0043
+  rougeL: 0.0805",,,Rouge,"  rouge1: 0.1995
+  rouge2: 0.0154
+  rougeL: 0.1287"
+,,Cosine Similarity,0.3226,,,Cosine Similarity,0.4005,,,Cosine Similarity,0.2458,,,Cosine Similarity,0.4555
+"""gensim"": api.load(""glove-wiki-gigaword-100"")",,Rouge,"  rouge1: 0.0709
+  rouge2: 0.0017
+  rougeL: 0.0587",,,Rouge,"  rouge1: 0.2657
+  rouge2: 0.0275
+  rougeL: 0.1676",,,Rouge,"  rouge1: 0.0416
+  rouge2: 0.0001
+  rougeL: 0.0386",,,Rouge,"  rouge1: 0.3232
+  rouge2: 0.0252
+  rougeL: 0.1810"
+,,Cosine Similarity,0.1457,,,Cosine Similarity,0.5454,,,Cosine Similarity,0.0957,,,Cosine Similarity,0.6132
+" ""use"": hub.load(""https://tfhub.dev/google/universal-sentence-encoder/4"")",,Rouge,"  rouge1: 0.2513
+  rouge2: 0.0195
+  rougeL: 0.1861",,,Rouge,"  rouge1: 0.2838
+  rouge2: 0.0740
+  rougeL: 0.1924",,,Rouge,"  rouge1: 0.1826
+  rouge2: 0.0149
+  rougeL: 0.1521",,,Rouge,"  rouge1: 0.2849
+  rouge2: 0.0826
+  rougeL: 0.1755"
+,,Cosine Similarity,0.5229,,,Cosine Similarity,0.618,,,Cosine Similarity,0.4547,,,Cosine Similarity,0.6579
+" ""roberta"": TransformerDocumentEmbeddings(""roberta-base"")",,Rouge,"  rouge1: 0.1433
+  rouge2: 0.0042
+  rougeL: 0.1134",,,Rouge," rouge1: 0.1729
+  rouge2: 0.0305
+  rougeL: 0.1261",,,Rouge,"  rouge1: 0.1012
+  rouge2: 0.0024
+  rougeL: 0.0881",,,Rouge,"  rouge1: 0.2079
+  rouge2: 0.0493
+  rougeL: 0.1368"
+,,Cosine Similarity,0.322,,,Cosine Similarity,0.4568,,,Cosine Similarity,0.2534,,,Cosine Similarity,0.5439
+"""bert-keyword-extractor"": ""yanekyuk/bert-keyword-extractor""",,Rouge," rouge1: 0.2723
+  rouge2: 0.0269
+  rougeL: 0.2017",,,Rouge,"  rouge1: 0.3581
+  rouge2: 0.1150
+  rougeL: 0.2384",,,Rouge,"  rouge1: 0.1941
+  rouge2: 0.0181
+  rougeL: 0.1631",,,Rouge,"  rouge1: 0.3037
+  rouge2: 0.0903
+  rougeL: 0.1945"
+,,Cosine Similarity,0.5636,,,Cosine Similarity,0.6816,,,Cosine Similarity,0.4889,,,Cosine Similarity,0.6771
+"""vlt5-base-keywords"": ""Voicelab/vlt5-base-keywords""",,Rouge,"  rouge1: 0.3860
+  rouge2: 0.2245
+  rougeL: 0.3065",,,Rouge,"  rouge1: 0.3886
+  rouge2: 0.2286
+  rougeL: 0.3083",,,Rouge,"  rouge1: 0.2948
+  rouge2: 0.1560
+  rougeL: 0.2535",,,Rouge,"  rouge1: 0.3777
+  rouge2: 0.2193
+  rougeL: 0.2995"
+,,Cosine Similarity,0.639,,,Cosine Similarity,0.6413,,,Cosine Similarity,0.5621,,,Cosine Similarity,0.6331
+"""t5"": ""t5-small""","""max_length"": 50,
+""num_beams"": 3,
+""temperature"": 1.0,
+""top_k"": 50,
+""top_p"": 0.9,
+""repetition_penalty"": 1.2,
+""do_sample"":True",Rouge,"  rouge1: 0.2716
+  rouge2: 0.1263
+  rougeL: 0.2143",,"
+""max_length"": 60,
+""num_beams"": 5,
+""temperature"": 1.5,
+""top_k"": 100,
+""top_p"": 0.95,
+""repetition_penalty"": 1.1",Rouge," rouge1: 0.2751
+  rouge2: 0.1283
+  rougeL: 0.2161",,"
+""max_length"": 30,
+""num_beams"": 1,
+""top_k"": 10,
+""top_p"": 0.8,
+""repetition_penalty"": 1.5",Rouge,"  rouge1: 0.2330
+  rouge2: 0.1042
+  rougeL: 0.1905",,"
+""max_length"": 100,
+""num_beams"": 5,
+""temperature"": 1.8,
+""top_k"": 200,
+""top_p"": 0.99,
+""repetition_penalty"": 1.0
+",Rouge,"  rouge1: 0.2726
+  rouge2: 0.1285
+  rougeL: 0.2135"
+,,Cosine Similarity,0.6181,,,Cosine Similarity,0.6325,,,Cosine Similarity,0.5343,,,Cosine Similarity,0.6669
+"""bart"": ""facebook/bart-large-cnn""",,Rouge,"  rouge1: 0.3065
+  rouge2: 0.1503
+  rougeL: 0.2403",,,Rouge,"  rouge1: 0.3121
+  rouge2: 0.1544
+  rougeL: 0.2428",,,Rouge,"  rouge1: 0.2834
+  rouge2: 0.1358
+  rougeL: 0.2339",,,Rouge,"  rouge1: 0.3139
+  rouge2: 0.1559
+  rougeL: 0.2425"
+,,Cosine Similarity,0.695,,,Cosine Similarity,0.7146,,,Cosine Similarity,0.6331,,,Cosine Similarity,0.7299
