@@ -1,7 +1,7 @@
 import os
 import nltk
 import pandas as pd
-import stanza  # Import Stanza
+import stanza
 from keybert import KeyBERT
 from sentence_transformers import SentenceTransformer
 from nltk.corpus import stopwords
@@ -28,7 +28,7 @@ model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 kw_model = KeyBERT(model)
 scorer = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
 
-# Store results
+
 results = []
 rouge_precision_sum = 0
 rouge_recall_sum = 0
@@ -80,13 +80,10 @@ def extract_keywords_and_compare():
                     lemmatized_text, keyphrase_ngram_range=(1, 3), top_n=5
                 )
                 extracted_keywords = [kw[0] for kw in extracted_keywords]
-
-                # Ensure **only top 3 named entities** are included in extracted keywords
                 for entity in named_entities:
                     if entity.lower() not in extracted_keywords:
                         extracted_keywords.append(entity)  # Add missing entities
 
-                # Load ground truth
                 ground_truth = load_ground_truth(filename.replace(".txt", ".key").replace("docsutf8", "keys"))
 
                 # Compute ROUGE-L scores
